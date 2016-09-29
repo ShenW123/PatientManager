@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Encounters</h1>
+<h1>PatientManager | EncountersList </h1>
 
-<table class="table">
+<%= link_to 'New Encounter', new_encounter_path, :class => "btn btn-primary" %>
+
+<br><br>
+
+<table class="table table-striped table-bordered table-condensed">
   <thead>
     <tr>
       <th>Patient mrn</th>
@@ -10,7 +14,6 @@
       <th>Admitted at</th>
       <th>Discharged at</th>
       <th>Actions</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -21,9 +24,9 @@
         <td><%= encounter.visit_number %></td>
         <td><%= encounter.admitted_at %></td>
         <td><%= encounter.discharged_at %></td>
-        <td><%= link_to 'Show', encounter %></td>
-        <td><%= link_to 'Edit', edit_encounter_path(encounter) %></td>
-        <td><%= link_to 'Destroy', encounter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', encounter, :class => "btn btn-default" %> | 
+        <%= link_to 'Edit', edit_encounter_path(encounter), :class => "btn btn-warning" %> | 
+        <%= link_to 'Destroy', encounter, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Encounter', new_encounter_path %>
+<%= link_to 'PatientsList', patients_url, :class => "btn btn-default" %>

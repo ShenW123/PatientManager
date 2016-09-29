@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  patient_mrn: MyString
+  patient_mrn: MyString1
   visit_number: 1
   admitted_at: 2016-09-28 16:18:43
   discharged_at: 2016-09-28 16:18:43
@@ -10,7 +10,7 @@ one:
   bed: 1
 
 two:
-  patient_mrn: MyString
+  patient_mrn: MyString2
   visit_number: 1
   admitted_at: 2016-09-28 16:18:43
   discharged_at: 2016-09-28 16:18:43

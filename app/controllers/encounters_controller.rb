@@ -10,19 +10,28 @@ class EncountersController < ApplicationController
   # GET /encounters/1
   # GET /encounters/1.json
   def show
-    @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+    @back_url = URI(request.referer || '').path
+    if @back_url.nil?
+      @back_url = encounters_url
+    end
   end
 
   # GET /encounters/new
   def new
-    # This doesn't work if I click submit, then go back...
+    # TODO: This goes back to Encounters Index, if you make an error in input, then click back. Ask what's the best way of handling this kind of situation
     @back_url = URI(request.referer || '').path
+    if @back_url.nil?
+      @back_url = encounters_url
+    end
     @encounter = Encounter.new
   end
 
   # GET /encounters/1/edit
   def edit
     @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+    if @back_url.nil?
+      @back_url = encounters_url
+    end
   end
 
   # POST /encounters
@@ -33,6 +42,11 @@ class EncountersController < ApplicationController
     respond_to do |format|
       if @encounter.save
         @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+        # Need to decide whether or not to Create the Encounter anyways? Might be better to still create it, but remind them that the Patient Isn't found
+        if @back_url.nil?
+          @back_url = encounters_url
+        end
+
         format.html { redirect_to @back_url, notice: 'Encounter was successfully created.' }
         format.json { render :show, status: :created, location: @back_url }
       else
@@ -46,11 +60,13 @@ class EncountersController < ApplicationController
   # PATCH/PUT /encounters/1.json
   def update
       respond_to do |format|
-      # return the first user named David
       @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
-      #get can't just use patient_url. It will utilize the same id value
+      # Upon Editing a record that doesn't have a patient, then return to the Encounters Index
+      if @back_url.nil?
+        @back_url = encounters_url
+      end
+
       if @encounter.update(encounter_params)
-        #get patient id
         format.html { redirect_to @back_url, notice: 'Encounter was successfully updated.' }
         format.json { render :show, status: :ok, location: @back_url }
       else
@@ -64,6 +80,9 @@ class EncountersController < ApplicationController
   # DELETE /encounters/1.json
   def destroy
     @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+    if @back_url.nil?
+      @back_url = encounters_url
+    end
     @encounter.destroy
     respond_to do |format|
       format.html { redirect_to @back_url, notice: 'Encounter was successfully destroyed.' }

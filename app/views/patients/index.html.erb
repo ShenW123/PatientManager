@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>PatientManager | PatientList </h1>
+<h1>PatientManager | PatientsList </h1>
 
 <%= link_to 'New Patient', new_patient_path, :class => "btn btn-primary" %>
 
@@ -13,7 +13,6 @@
       <th>First name</th>
       <th>Last name</th>
       <th>Actions</th>
-      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -32,5 +31,7 @@
 </table>
 
 <br>
+
+<%= link_to 'EncountersList', encounters_url, :class => "btn btn-default" %>
 
 
