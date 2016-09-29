@@ -28,7 +28,7 @@ class EncountersController < ApplicationController
 
   # GET /encounters/1/edit
   def edit
-    @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+    @back_url = Patient.find_by(MRN: @encounter.patient_mrn)
     if @back_url.nil?
       @back_url = encounters_url
     end
@@ -41,7 +41,7 @@ class EncountersController < ApplicationController
     # Design Choice: When creating new Encounter, go to Patient Show with same MRN as new Encounter
     respond_to do |format|
       if @encounter.save
-        @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+        @back_url = Patient.find_by(MRN: @encounter.patient_mrn)
         # Need to decide whether or not to Create the Encounter anyways? Might be better to still create it, but remind them that the Patient Isn't found
         if @back_url.nil?
           @back_url = encounters_url
@@ -60,7 +60,7 @@ class EncountersController < ApplicationController
   # PATCH/PUT /encounters/1.json
   def update
       respond_to do |format|
-      @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+      @back_url = Patient.find_by(MRN: @encounter.patient_mrn)
       # Upon Editing a record that doesn't have a patient, then return to the Encounters Index
       if @back_url.nil?
         @back_url = encounters_url
@@ -79,7 +79,7 @@ class EncountersController < ApplicationController
   # DELETE /encounters/1
   # DELETE /encounters/1.json
   def destroy
-    @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+    @back_url = Patient.find_by(MRN: @encounter.patient_mrn)
     if @back_url.nil?
       @back_url = encounters_url
     end

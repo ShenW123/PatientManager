@@ -17,7 +17,7 @@ class EncountersControllerTest < ActionController::TestCase
   end
 
   test "should create encounter" do
-    @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+    @back_url = Patient.find_by(MRN: @encounter.patient_mrn)
     if @back_url.nil?
       @back_url = encounters_url
     end
@@ -39,7 +39,7 @@ class EncountersControllerTest < ActionController::TestCase
   end
 
   test "should update encounter" do
-    @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+    @back_url = Patient.find_by(MRN: @encounter.patient_mrn)
     if @back_url.nil?
       @back_url = encounters_url
     end
@@ -48,7 +48,7 @@ class EncountersControllerTest < ActionController::TestCase
   end
 
   test "should destroy encounter" do
-    @back_url = Patient.find_by(mrn: @encounter.patient_mrn)
+    @back_url = Patient.find_by(MRN: @encounter.patient_mrn)
     if @back_url.nil?
       @back_url = encounters_url
     end

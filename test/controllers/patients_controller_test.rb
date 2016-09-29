@@ -18,7 +18,7 @@ class PatientsControllerTest < ActionController::TestCase
 
   test "should create patient" do
     # Found a problem with the test and Uniqueness, where because testing with similar values, we have conflicts in the MRN therefore fails even though it can still create values.
-    if Patient.exists?(mrn: @patient.MRN)
+    if Patient.exists?(MRN: @patient.MRN)
       @patient.MRN = @patient.MRN << "a"
       puts @patient.MRN
     end
