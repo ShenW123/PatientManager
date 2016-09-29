@@ -1,0 +1,45 @@
+<%= form_for(@encounter) do |f| %>
+  <% if @encounter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@encounter.errors.count, "error") %> prohibited this encounter from being saved:</h2>
+
+      <ul>
+      <% @encounter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :patient_mrn %><br>
+    <%= f.text_field :patient_mrn %>
+  </div>
+  <div class="field">
+    <%= f.label :visit_number %><br>
+    <%= f.number_field :visit_number %>
+  </div>
+  <div class="field">
+    <%= f.label :admitted_at %><br>
+    <%= f.datetime_select :admitted_at %>
+  </div>
+  <div class="field">
+    <%= f.label :discharged_at %><br>
+    <%= f.datetime_select :discharged_at %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :room %><br>
+    <%= f.text_field :room %>
+  </div>
+  <div class="field">
+    <%= f.label :bed %><br>
+    <%= f.number_field :bed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

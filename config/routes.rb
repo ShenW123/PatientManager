@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root 'application#hello'
+  resources :encounters
+  resources :patients
+  root 'patients#index'
 end
