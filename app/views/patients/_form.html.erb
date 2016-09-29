@@ -1,4 +1,4 @@
-<%= form_for(@patient) do |f| %>
+<%= bootstrap_form_for(@patient, layout: :horizontal) do |f| %>
   <% if @patient.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
@@ -12,30 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :middle_name %><br>
     <%= f.text_field :middle_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :weight %><br>
     <%= f.text_field :weight %>
   </div>
   <div class="field">
-    <%= f.label :height %><br>
     <%= f.number_field :height %>
   </div>
   <div class="field">
-    <%= f.label :MRN %><br>
     <%= f.text_field :MRN %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: "btn btn-success"%>
   </div>
 <% end %>

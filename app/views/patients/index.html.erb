@@ -2,7 +2,7 @@
 
 <h1>Listing Patients</h1>
 
-<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'New Patient', new_patient_path, :class => "btn btn-primary" %>
 
 <table>
   <thead>
@@ -21,9 +21,9 @@
         <td><%= patient.MRN %></td>
         <td><%= patient.first_name %></td>
         <td><%= patient.last_name %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', patient, :class => "btn btn-default" %></td>
+        <td><%= link_to 'Edit', edit_patient_path(patient), :class => "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', patient, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

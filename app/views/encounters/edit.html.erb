@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @encounter %> |
-<%= link_to 'Back', encounters_path %>
+<br>
+<%= link_to 'Show', @encounter, :class => "btn btn-default" %> |
+<%= link_to 'Back', @back_url, :class => "btn btn-default" %>

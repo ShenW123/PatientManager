@@ -30,12 +30,12 @@
   <%= @patient.MRN %>
 </p>
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+<%= link_to 'Edit', edit_patient_path(@patient), :class => "btn btn-warning" %> |
+<%= link_to 'Back', patients_path, :class => "btn btn-default" %>
 
 <br><br><br><br>
 
-<%= link_to 'New Encounter', new_encounter_path %>
+<%= link_to 'New Encounter', new_encounter_path, :class => "btn btn-primary" %>
 <table>
   <thead>
     <tr>
@@ -53,9 +53,9 @@
         <td><%= encounter.visit_number %></td>
         <td><%= encounter.admitted_at %></td>
         <td><%= encounter.discharged_at %></td>
-        <td><%= link_to 'Show', encounter %></td>
-        <td><%= link_to 'Edit', edit_encounter_path(encounter) %></td>
-        <td><%= link_to 'Destroy', encounter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', encounter, :class => "btn btn-default" %></td>
+        <td><%= link_to 'Edit', edit_encounter_path(encounter), :class => "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', encounter, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
 <% end %>
 </table>

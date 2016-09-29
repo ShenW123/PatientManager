@@ -35,5 +35,5 @@
   <%= @encounter.bed %>
 </p>
 
-<%= link_to 'Edit', edit_encounter_path(@encounter) %> |
-<%= link_to 'Back', encounters_path %>
+<%= link_to 'Edit', edit_encounter_path(@encounter), :class => "btn btn-warning" %> |
+<%= link_to 'Back', @back_url, :class => "btn btn-default" %>
