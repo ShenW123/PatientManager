@@ -15,6 +15,7 @@ class EncountersController < ApplicationController
 
   # GET /encounters/new
   def new
+    # This doesn't work if I click submit, then go back...
     @back_url = URI(request.referer || '').path
     @encounter = Encounter.new
   end

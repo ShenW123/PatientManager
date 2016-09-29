@@ -1,39 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Patient mrn:</strong>
-  <%= @encounter.patient_mrn %>
-</p>
+<h1> Encounter Information </h1>
 
-<p>
-  <strong>Visit number:</strong>
-  <%= @encounter.visit_number %>
-</p>
+<table class='table table-bordered'>
+  <tbody>
 
-<p>
-  <strong>Admitted at:</strong>
-  <%= @encounter.admitted_at %>
-</p>
+    <tr>
+      <td> <strong>Patient mrn:</strong> </td>
+      <td> <%= @encounter.patient_mrn %> </td>
+    </tr>
 
-<p>
-  <strong>Discharged at:</strong>
-  <%= @encounter.discharged_at %>
-</p>
+    <tr>
+      <td> <strong>Visit number:</strong> </td>
+      <td> <%= @encounter.visit_number %> </td>
+    </tr>
 
-<p>
-  <strong>Location:</strong>
-  <%= @encounter.location %>
-</p>
+    <tr>
+      <td> <strong>Admitted at:</strong> </td>
+      <td> <%= @encounter.admitted_at %> </td>
+    </tr>
 
-<p>
-  <strong>Room:</strong>
-  <%= @encounter.room %>
-</p>
+    <tr>
+      <td> <strong>Discharged at:</strong> </td>
+      <td> <%= @encounter.discharged_at %> </td>
+    </tr>
 
-<p>
-  <strong>Bed:</strong>
-  <%= @encounter.bed %>
-</p>
+    <tr>
+      <td> <strong>Location:</strong> </td>
+      <td> <%= @encounter.location %> </td>
+    </tr>
+
+    <tr>
+      <td> <strong>Room:</strong> </td>
+      <td> <%= @encounter.room %> </td>
+    </tr>
+
+    <tr>
+      <td> <strong>Bed:</strong> </td>
+      <td> <%= @encounter.bed %> </td>
+    </tr>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_encounter_path(@encounter), :class => "btn btn-warning" %> |
 <%= link_to 'Back', @back_url, :class => "btn btn-default" %>
